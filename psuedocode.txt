@@ -1,0 +1,17 @@
+Press Start button to being game
+    on click event starts game
+
+1st question appears with multiple choice answers
+    Create array for questions and choices.
+    Create array for correct answers.
+
+Timer begins counting done for that question
+    setTimeout(, 30000)
+
+User selects answer and told if correct or incorrect. 
+    If incorrect, will tell user the correct answer and then move on to next quesion.
+
+If timer runs out, Time Out message displayed along with correct answer and moves on to next question.
+
+After all questions answered/displayed, the end will display correct answers, incorrect answers, and unanswered.
+    Start over button will reset game.
