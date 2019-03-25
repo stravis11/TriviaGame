@@ -2,7 +2,8 @@ Press Start button to being game
     on click event starts game
 
 1st question appears with multiple choice answers
-    Create array for questions and choices.
+    Create array for questions.
+    Create array for options.
     Create array for correct answers.
 
 Timer begins counting done for that question
