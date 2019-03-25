@@ -5,10 +5,11 @@ $(document).ready(function() {
     var incorrect = 0;
     var questionTime = 30;
     var timeID;
+    var currentQuestion = 0;
 
 
     //Question and answer array
-    var questions = [{
+    var questionswArray = [{
         question: "What color is the sky?",
         choices: ["Red","Blue","Green","Yellow"],
         answer: 1
@@ -42,12 +43,27 @@ $(document).ready(function() {
             questionTime--
             var $time = $("<h2>Time Remaining 00:" +questionTime+ " </h2>");
             $("#time").html($time);
+        } else if (currentQuestion <= questionswArray.length) {
+            $time = $("<h2>Times up! 00:00 </h2> ");
+            $("#time").html($time);
+            endgame();
+        } else{
+            $time = $("<h2>Game Over! ");
+            $("#time").append($time);
+            endgame();
         }
+
+        
     }
 
     //Starting the trivia questions
         function startquiz () {
           $("#questions").html("Game started!");  
         }
+
+    //Game over function
+    function endgame () {
+        $("#questions").html("Game over!");  
+      }
 
 });
