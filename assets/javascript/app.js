@@ -6,20 +6,21 @@ $(document).ready(function() {
     var questionTime = 30;
     var timeID;
     var currentQuestion = 0;
+    var currentObject = [];
 
 
     //Question and answer array
     var questionswArray = [{
         question: "What color is the sky?",
-        choices: ["Red","Blue","Green","Yellow"],
+        options: ["Red","Blue","Green","Yellow"],
         answer: 1
     }, {
         question: "Why did the chicken cross the road?",
-        choices: ["She was bored","She was hungry","To get to the other side","Curiosity"],
+        options: ["She was bored","She was hungry","To get to the other side","Curiosity"],
         answer: 2
     }, {
         question: "How much could a woodchuck chuck if a woodchuck could chuck wood?",
-        choices: ["A lot","Not too much","None","I have no idea"],
+        options: ["A lot","Not too much","None","I have no idea"],
         correct: 3
     }]
 
@@ -58,7 +59,24 @@ $(document).ready(function() {
 
     //Starting the trivia questions
         function startquiz () {
-          $("#questions").html("Game started!");  
+            //   $("#questions").html("Game started!"); 
+            var quest = $("<h3>");
+            currentObject = questionswArray[currentQuestion]
+            quest.text(currentObject.question);
+            var newDiv = $("<div>").attr("id", "Q");
+            $("#questions").append(newDiv);
+            $("#Q").append(quest);
+            var newDiv2 = $("<div>").attr("id", "A");
+            $("#question").append(newDiv2);
+
+            for (var i = 0; i < currentObject.options.length; i++) {
+                 var choices = $("<p>");
+                choices.text(currentObject.options[i])
+                $("#A").append(choices);
+            };
+
+
+
         }
 
     //Game over function
