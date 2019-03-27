@@ -3,7 +3,7 @@ $(document).ready(function () {
     //Global variables
     var correct = 0;
     var incorrect = 0;
-    var questionTime = 10;
+    var questionTime = 30;
     var timeID;
     var currentQuestion = 0;
     var currentObject = [];
@@ -23,19 +23,19 @@ $(document).ready(function () {
     }, {
         question: "How much could a woodchuck chuck if a woodchuck could chuck wood?",
         options: ["A lot", "Not too much", "None", "I have no idea"],
-        correct: 3
+        answer: 3
     }, {
         question: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, provident?",
         options: ["amet", "consectetur", "dolor", "adipisicing"],
-        correct: 3
+        answer: 3
     }, {
         question: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, dignissimos?",
         options: ["amet", "consectetur", "dolor", "adipisicing"],
-        correct: 2
+        answer: 2
     }, {
         question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, iure!",
         options: ["amet", "consectetur", "dolor", "adipisicing"],
-        correct: 1
+        answer: 1
     }]
 
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 $("#time").html($time);
                 endgame();
             } else {
-                $time = $("<h2>Game Over! ");
+                $time = $("<h2>Game Over! </h2>");
                 $("#time").append($time);
                 endgame();
             }
@@ -137,12 +137,12 @@ $(document).ready(function () {
             $("#questions").empty();
             incorrect++
             $("#questions").html("<h3>Sorry, that's wrong. The correct answer was: " + txt + ". Try again.</h3>");
-            console.log(txt);
+            
         }
         if (currentQuestion <= 4) {
             currentQuestion++
-            setTimeout(startquiz, 40000);
-            t = 34;
+            setTimeout(startquiz, 4000);
+            questionTime = 34;
         } else {
             endgame();
         }
@@ -153,7 +153,7 @@ $(document).ready(function () {
     function endgame() {
         $("#questions").empty();
         clearInterval(timeID);
-        $("#questions").append("<h4>Game over!</h4>");
+        $("#questions").append("<h4>That was a fun game!</h4>");
         $("#questions").append("<h3>Correct answers: " + correct + "<br></br>Wrong answers: " + incorrect + "</h3>");
         var $btn = $("<button>").attr("id", "startover").text("Start Over");
         $("#time").prepend($btn);
@@ -173,7 +173,7 @@ $(document).ready(function () {
     function restart() {
         correct = 0;
         incorrect = 0;
-        questionTime = 10;
+        questionTime = 30;
         currentQuestion = 0;
         timer();
         timeID = setInterval(timer, 1000);
