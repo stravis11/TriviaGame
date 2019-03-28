@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Get Schwifty;
+    src: url(../fonts/get_schwifty.ttf);
+    
+    font-family: Rick and Morty;
+    src: url(../fonts/rick_and_morty.ttf);
+}
+
+body {
+    font-family: "Lato",sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background: #555;
+    color: white;
+    
+}
+
+header h1 {
+    font-size: 65px;
+    font-family: "Rick and Morty",Arial, Helvetica, sans-serif
+}
+
+#startBtn {
+cursor: pointer;
+}
+
