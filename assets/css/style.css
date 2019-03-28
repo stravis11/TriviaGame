@@ -1,35 +1,91 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 @font-face {
 	font-family: Get Schwifty;
     src: url(../fonts/get_schwifty.ttf);
-    
+}
+
+@font-face {
     font-family: Rick and Morty;
     src: url(../fonts/rick_and_morty.ttf);
 }
 
 body {
-    font-family: "Lato",sans-serif;
+    font-family: "Rick and Morty",sans-serif;
+    background: url('../images/background2.jpg') no-repeat center center fixed; 
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%; 
+    background-size: 100% 100%;
+
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    background: #555;
-    color: white;
-    
+/* .container {
+	max-width: 960px;
+    margin: 0 auto;
+} */
+
+
+.jumbotron{
+    background: #84CB2B!important;
+    border-radius: 25px!important;
 }
 
-header h1 {
-    font-size: 65px;
-    font-family: "Rick and Morty",Arial, Helvetica, sans-serif
-}
+.jumbotron h1 {
+    font-size: 5em;
+    font-family: "Get Schwifty",Arial, Helvetica, sans-serif;
+    color: #0899BD;
+    text-shadow: 4px 4px 4px #0E890A;
+    }
 
 #startBtn {
 cursor: pointer;
+font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
+background-color: #222240;
+color: #00AFC9;
+font-size: 55px;
+border-radius: 15px;
+border: none;
+box-shadow: 4px 4px 4px #aaa;
+outline: none;
+text-align: center;
+padding: 15px 25px;
+box-shadow: 4px 4px 4px #aaa;
+width: 25%;
+height: 80%;
 }
 
+#startBtn:hover {background-color: #86CA23;}
+
+#startover {
+    cursor: pointer;
+    font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
+    background-color: #86CA23;
+    color: #00AFC9;
+    font-size: 55px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 4px 4px 4px #aaa;
+    outline: none;
+    text-align: center;
+    padding: 15px 25px;
+    box-shadow: 4px 4px 4px #aaa;
+    width: 25%;
+    height: 80%;
+}
+
+#startover:hover {background-color: #aaa;}
+
+
+#time {
+    font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
+    font-size: 35px;
+    color: white;
+    box-shadow: 4px 4px 4px #aaa;
+    border-radius: 15px;
+    background: #222240;
+}

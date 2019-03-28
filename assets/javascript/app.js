@@ -153,6 +153,7 @@ $(document).ready(function () {
     function endgame() {
         $("#questions").empty();
         clearInterval(timeID);
+        clearInterval(questionTime);
         $("#questions").append("<h4>That was a fun game!</h4>");
         $("#questions").append("<h3>Correct answers: " + correct + "<br></br>Wrong answers: " + incorrect + "</h3>");
         var $btn = $("<button>").attr("id", "startover").text("Start Over");
