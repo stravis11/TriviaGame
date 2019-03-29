@@ -16,7 +16,7 @@
 
 body {
     font-family: "Rick and Morty",sans-serif;
-    background: url('../images/background2.jpg') no-repeat center center fixed; 
+    background: url('../images/background.png') no-repeat center center fixed; 
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
     -webkit-background-size: 100% 100%; 
@@ -36,8 +36,8 @@ body {
 }
 
 .jumbotron h1 {
-    font-size: 5em;
-    font-family: "Get Schwifty",Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    font-family: "Leta",Arial, Helvetica, sans-serif;
     color: #0899BD;
     text-shadow: 4px 4px 4px #0E890A;
     }
@@ -45,7 +45,7 @@ body {
 #startBtn {
 cursor: pointer;
 font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
-background-color: #222240;
+background-color: #86CA23;
 color: #00AFC9;
 font-size: 55px;
 border-radius: 15px;
@@ -59,12 +59,12 @@ width: 25%;
 height: 80%;
 }
 
-#startBtn:hover {background-color: #86CA23;}
+#startBtn:hover {background-color: #aaa;}
 
 #startover {
     cursor: pointer;
     font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
-    background-color: #86CA23;
+    background-color: #D7C158;
     color: #00AFC9;
     font-size: 55px;
     border-radius: 15px;
@@ -73,9 +73,9 @@ height: 80%;
     outline: none;
     text-align: center;
     padding: 15px 25px;
-    box-shadow: 4px 4px 4px #aaa;
-    width: 25%;
-    height: 80%;
+   
+    /* width: 50%;
+    height: 50%; */
 }
 
 #startover:hover {background-color: #aaa;}
@@ -88,4 +88,19 @@ height: 80%;
     box-shadow: 4px 4px 4px #aaa;
     border-radius: 15px;
     background: #222240;
+    text-align: center;
+    
+}
+
+.card {
+    font-family: "Leta",Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    background-color: #86CA23!important;
+    box-shadow: 4px 4px 4px #aaa;
+    border-radius: 15px;
+    padding: 15px 25px;
+}
+
+#questions {
+    text-align: center;
 }

@@ -13,32 +13,34 @@ $(document).ready(function () {
 
     //Question and answer array
     var questionsArray = [{
-        question: "What color is the sky?",
-        options: ["Red", "Blue", "Green", "Yellow"],
+        question: "What is Rick's last name?",
+        options: ["Sanchez", "Smith", "Jones", "Williams"],
+        answer: 0
+    }, {
+        question: "What is Beth's profession?",
+        options: ["Dentist", "Horse Surgeon", "Pilot", "Accountant"],
         answer: 1
     }, {
-        question: "Why did the chicken cross the road?",
-        options: ["She was bored", "She was hungry", "To get to the other side", "Curiosity"],
+        question: "What does Rick use to travel between universes?",
+        options: ["Warp Drive", "Stargate", "Portal Gun", "TARDIS"],
         answer: 2
     }, {
-        question: "How much could a woodchuck chuck if a woodchuck could chuck wood?",
-        options: ["A lot", "Not too much", "None", "I have no idea"],
-        answer: 3
-    }, {
-        question: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, provident?",
-        options: ["amet", "consectetur", "dolor", "adipisicing"],
-        answer: 3
-    }, {
-        question: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, dignissimos?",
-        options: ["amet", "consectetur", "dolor", "adipisicing"],
+        question: "What's the name of the happy-go-lucky blue colored creature that disappears after solving your problem?",
+        options: ["Squanchy", "Jerry", "Mr. Meeseeks", "Bill"],
         answer: 2
     }, {
-        question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, iure!",
-        options: ["amet", "consectetur", "dolor", "adipisicing"],
+        question: "What is the name of Rick's half-avian half-human best friend?",
+        options: ["Falcon Man", "Bird Person", "Hawk Guy", "Big Bird"],
         answer: 1
+    }, {
+        question: "This Freddy Kruger-like character shows up in Lawnmower Dog.",
+        options: ["Scary Terry", "Angry Bob", "Terrifying Tom", "Spooky Sam"],
+        answer: 0
     }]
 
-
+    //Images array
+    var imagesCorrect = ["question0.png", "question1.png", "question2.png", "question3.png", "question4.png", "question5.png"]
+    var imagesIncorrect = ["wrong1.png","wrong2.png","wrong3.png"]
 
     //Start game event listener
     $("#startBtn").click(function () {
@@ -74,7 +76,6 @@ $(document).ready(function () {
 
     //Starting the trivia questions
     function startquiz() {
-        //   $("#questions").html("Game started!");
         $("#questions").empty();
         var quest = $("<h3>");
         currentObject = questionsArray[currentQuestion]
@@ -85,21 +86,28 @@ $(document).ready(function () {
         var newDiv2 = $("<div>").attr("id", "A");
         $("#questions").append(newDiv2);
 
+        //Display question choices
         for (var i = 0; i < currentObject.options.length; i++) {
             var choices = $("<p>");
             choices.text(currentObject.options[i]);
             $("#A").append(choices);
         };
 
-        $("#A").css({ 'padding': '15px', 'width': '30%', 'margin': '0 auto' });
+
+        $("#A");
+        // $("#A").css({ 'padding': '10px', 'width': '30%', 'margin': '0 auto' });
 
 
         $('#A p').on({
 
             mouseover: function () {
                 $(this).css({
-                    backgroundColor: "lightblue", fontSize: "20px",
-                    border: '1px solid black'
+                    backgroundColor: "#aaa",
+                    border: "1px solid black",
+                    borderRadius: "15px"
+                    
+                    // backgroundColor: "lightblue", fontSize: "20px",
+                    // border: '1px solid black'
                 })
             },
             mouseout: function () {
@@ -126,18 +134,22 @@ $(document).ready(function () {
     }
 
     //Next question function
-
     function nextquestion() {
         if (logic) {
             $("#questions").empty();
             correct++
-            $("#questions").html("<h4>Keep it up!</h4>");
-
+            $("#questions").html("<h4>That's right! Wubba Lubba dub-dub! </h4>");
+            //Change image
+            var randImage = imagesCorrect[correct];
+            document.getElementById('questionimage').src = "assets/images/" + randImage;
+            
         } else {
             $("#questions").empty();
             incorrect++
-            $("#questions").html("<h3>Sorry, that's wrong. The correct answer was: " + txt + ". Try again.</h3>");
-            
+            $("#questions").html("<h3>Wrong! The correct answer was: " + txt + "</h3>");
+            //Change image
+            var randImage = imagesIncorrect[Math.floor(Math.random() * imagesIncorrect.length)];
+            document.getElementById('questionimage').src = "assets/images/" + randImage;
         }
         if (currentQuestion <= 4) {
             currentQuestion++
@@ -154,18 +166,15 @@ $(document).ready(function () {
         $("#questions").empty();
         clearInterval(timeID);
         clearInterval(questionTime);
-        $("#questions").append("<h4>That was a fun game!</h4>");
+        // $("#questions").append("<h4>That was a fun game!</h4>");
         $("#questions").append("<h3>Correct answers: " + correct + "<br></br>Wrong answers: " + incorrect + "</h3>");
         var $btn = $("<button>").attr("id", "startover").text("Start Over");
-        $("#time").prepend($btn);
-        console.log("endgame");
-
+        $("#questions").prepend($btn);
 
         //Game over button
         $("#startover").click(function () {
             $("#startover").hide();
             restart();
-            console.log("startover");
         })
     }
 
@@ -179,6 +188,5 @@ $(document).ready(function () {
         timer();
         timeID = setInterval(timer, 1000);
         startquiz();
-        console.log("restart");
     }
 })
