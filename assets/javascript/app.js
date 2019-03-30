@@ -38,7 +38,7 @@ $(document).ready(function () {
         answer: 0
     }]
 
-    //Images array
+    //Image arrays
     var imagesCorrect = ["question0.png", "question1.png", "question2.png", "question3.png", "question4.png", "question5.png"]
     var imagesIncorrect = ["wrong1.png","wrong2.png","wrong3.png"]
 
@@ -48,11 +48,9 @@ $(document).ready(function () {
         $("#startBtn").hide();
         timer();
         timeID = setInterval(timer, 1000);
-        console.log(timeID);
         startquiz();
 
     })
-
 
     //Timer function
     function timer() {
@@ -86,50 +84,38 @@ $(document).ready(function () {
         var newDiv2 = $("<div>").attr("id", "A");
         $("#questions").append(newDiv2);
 
-        //Display question choices
+        //Display answer choices
         for (var i = 0; i < currentObject.options.length; i++) {
             var choices = $("<p>");
             choices.text(currentObject.options[i]);
             $("#A").append(choices);
         };
 
-
         $("#A");
-        // $("#A").css({ 'padding': '10px', 'width': '30%', 'margin': '0 auto' });
-
-
+        
         $('#A p').on({
-
+            //Mouse highlight for answer choices
             mouseover: function () {
                 $(this).css({
                     backgroundColor: "#aaa",
                     border: "1px solid black",
-                    borderRadius: "15px"
-                    
-                    // backgroundColor: "lightblue", fontSize: "20px",
-                    // border: '1px solid black'
+                    borderRadius: "15px"                  
                 })
             },
             mouseout: function () {
                 $(this).css({ backgroundColor: "", fontSize: "", border: '' })
             },
-            click: function () {
-
-
+            click: function () {     
                 if ($(this).text() === currentObject.options[currentObject.answer]) {
-
-                    console.log('Correct!');
-                    $(this).css({ color: "green" });
                     logic = true;
                     setTimeout(nextquestion, 2000);
-
                 } else {
-                    $(this).css({ color: "red" });
                     txt = currentObject.options[currentObject.answer];
                     logic = false;
                     setTimeout(nextquestion, 2000);
                 }
             }
+        
         });
     }
 
@@ -139,15 +125,14 @@ $(document).ready(function () {
             $("#questions").empty();
             correct++
             $("#questions").html("<h4>That's right! Wubba Lubba dub-dub! </h4>");
-            //Change image
+            //Change image for correct answer
             var randImage = imagesCorrect[correct];
-            document.getElementById('questionimage').src = "assets/images/" + randImage;
-            
+            document.getElementById('questionimage').src = "assets/images/" + randImage;           
         } else {
             $("#questions").empty();
             incorrect++
             $("#questions").html("<h3>Wrong! The correct answer was: " + txt + "</h3>");
-            //Change image
+            //Change image for incorrect answer
             var randImage = imagesIncorrect[Math.floor(Math.random() * imagesIncorrect.length)];
             document.getElementById('questionimage').src = "assets/images/" + randImage;
         }
@@ -166,7 +151,8 @@ $(document).ready(function () {
         $("#questions").empty();
         clearInterval(timeID);
         clearInterval(questionTime);
-        // $("#questions").append("<h4>That was a fun game!</h4>");
+        $("#questions").append("<h3>That was a fun game!</h3>");
+        document.getElementById('questionimage').src = "assets/images/gameover.png"; 
         $("#questions").append("<h3>Correct answers: " + correct + "<br></br>Wrong answers: " + incorrect + "</h3>");
         var $btn = $("<button>").attr("id", "startover").text("Start Over");
         $("#questions").prepend($btn);

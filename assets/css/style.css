@@ -1,9 +1,5 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 
+/* Fonts */
 @font-face {
 	font-family: Get Schwifty;
     src: url(../fonts/get_schwifty.ttf);
@@ -14,6 +10,7 @@
     src: url(../fonts/rick_and_morty.ttf);
 }
 
+/* Body styling */
 body {
     font-family: "Rick and Morty",sans-serif;
     background: url('../images/background.png') no-repeat center center fixed; 
@@ -24,12 +21,7 @@ body {
 
 }
 
-/* .container {
-	max-width: 960px;
-    margin: 0 auto;
-} */
-
-
+/* Change jumbotron styling */
 .jumbotron{
     background: #84CB2B!important;
     border-radius: 25px!important;
@@ -42,6 +34,7 @@ body {
     text-shadow: 4px 4px 4px #0E890A;
     }
 
+/* Start button styling */
 #startBtn {
 cursor: pointer;
 font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
@@ -61,6 +54,7 @@ height: 80%;
 
 #startBtn:hover {background-color: #aaa;}
 
+/* Start over button styling */
 #startover {
     cursor: pointer;
     font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
@@ -80,7 +74,7 @@ height: 80%;
 
 #startover:hover {background-color: #aaa;}
 
-
+/* Time counter styling */
 #time {
     font-family: "Rick and Morty",Arial,Helvetica,sans-serif;
     font-size: 35px;
@@ -92,6 +86,7 @@ height: 80%;
     
 }
 
+/* Question section styling */
 .card {
     font-family: "Leta",Arial, Helvetica, sans-serif;
     font-size: 30px;
