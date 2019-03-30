@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     //Image arrays
     var imagesCorrect = ["question0.png", "question1.png", "question2.png", "question3.png", "question4.png", "question5.png"]
-    var imagesIncorrect = ["wrong1.png","wrong2.png","wrong3.png"]
+    var imagesIncorrect = ["wrong1.png", "wrong2.png", "wrong3.png"]
 
     //Start game event listener
     $("#startBtn").click(function () {
@@ -92,20 +92,25 @@ $(document).ready(function () {
         };
 
         $("#A");
-        
-        $('#A p').on({
-            //Mouse highlight for answer choices
+
+        $("#A p").on({
+            //Mouse highlight and select functions for answer choices
             mouseover: function () {
                 $(this).css({
                     backgroundColor: "#aaa",
                     border: "1px solid black",
-                    borderRadius: "15px"                  
+                    borderRadius: "15px",
                 })
             },
             mouseout: function () {
-                $(this).css({ backgroundColor: "", fontSize: "", border: '' })
+                $(this).css({ backgroundColor: "", border: ""})
             },
-            click: function () {     
+            click: function () {
+                $(this).css({
+                    backgroundColor: "#D7C158",
+                    border: "1px solid black",
+                    borderRadius: "15px"
+                })
                 if ($(this).text() === currentObject.options[currentObject.answer]) {
                     logic = true;
                     setTimeout(nextquestion, 2000);
@@ -115,7 +120,7 @@ $(document).ready(function () {
                     setTimeout(nextquestion, 2000);
                 }
             }
-        
+
         });
     }
 
@@ -127,7 +132,7 @@ $(document).ready(function () {
             $("#questions").html("<h4>That's right! Wubba Lubba dub-dub! </h4>");
             //Change image for correct answer
             var randImage = imagesCorrect[correct];
-            document.getElementById('questionimage').src = "assets/images/" + randImage;           
+            document.getElementById("questionimage").src = "assets/images/" + randImage;
         } else {
             $("#questions").empty();
             incorrect++
@@ -152,7 +157,7 @@ $(document).ready(function () {
         clearInterval(timeID);
         clearInterval(questionTime);
         $("#questions").append("<h3>That was a fun game!</h3>");
-        document.getElementById('questionimage').src = "assets/images/gameover.png"; 
+        document.getElementById('questionimage').src = "assets/images/gameover.png";
         $("#questions").append("<h3>Correct answers: " + correct + "<br></br>Wrong answers: " + incorrect + "</h3>");
         var $btn = $("<button>").attr("id", "startover").text("Start Over");
         $("#questions").prepend($btn);
